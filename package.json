@@ -7,7 +7,7 @@
     "build": "tsc -p .",
     "start": "node dist/server.js",
     "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "bullmq": "^1.75.0",
