@@ -1,0 +1,10 @@
+type User = { id: string; email: string; password: string; name?: string };
+const db: User[] = [];
+import { v4 as uuidv4 } from 'uuid';
+const list = async () => db;
+const get = async (id: string) => db.find(d => d.id === id);
+const create = async (payload: any) => { const item = { id: uuidv4(), ...payload }; db.push(item); return item; };
+const update = async (id: string, payload: any) => { const i = db.findIndex(d=>d.id===id); db[i] = { ...db[i], ...payload }; return db[i]; };
+const remove = async (id: string) => { const i = db.findIndex(d=>d.id===id); if(i>=0) db.splice(i,1); };
+const findByEmail = async (email: string) => db.find(d => d.email === email);
+export default { list, get, create, update, remove, findByEmail };

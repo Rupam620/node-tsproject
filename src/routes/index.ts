@@ -1,0 +1,13 @@
+import { Router } from 'express';
+import auth from './auth.routes';
+import users from './users.routes';
+import posts from './posts.routes';
+import comments from './comments.routes';
+import health from './health.routes';
+const router = Router();
+router.use('/auth', auth);
+router.use('/users', users);
+router.use('/posts', posts);
+router.use('/comments', comments);
+router.use('/health', health);
+export default router;

@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { asyncWrapper } from '../middleware/asyncWrapper';
+import PostsController from '../controllers/posts.controller';
+const router = Router();
+router.get('/', asyncWrapper(PostsController.list));
+router.get('/:id', asyncWrapper(PostsController.get));
+router.post('/', asyncWrapper(PostsController.create));
+router.put('/:id', asyncWrapper(PostsController.update));
+router.delete('/:id', asyncWrapper(PostsController.remove));
+router.post('/:id/publish', asyncWrapper(PostsController.publish));
+export default router;

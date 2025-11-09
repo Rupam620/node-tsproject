@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { asyncWrapper } from '../middleware/asyncWrapper';
+import UsersController from '../controllers/users.controller';
+const router = Router();
+router.get('/', asyncWrapper(UsersController.list));
+router.get('/:id', asyncWrapper(UsersController.get));
+router.post('/', asyncWrapper(UsersController.create));
+router.put('/:id', asyncWrapper(UsersController.update));
+router.delete('/:id', asyncWrapper(UsersController.remove));
+export default router;
